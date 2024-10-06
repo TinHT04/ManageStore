@@ -5,55 +5,100 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManageStore"
         mc:Ignorable="d"
-        Title="Coffee Manager" Height="1080" Width="1920">
+        Title="CoffeeManager" Height="1040" Width="1920">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <!-- Border as background -->
-        <Border BorderThickness="1" Background="#FFFFE0E0" HorizontalAlignment="Left" Height="103" Margin="0,62,0,0" VerticalAlignment="Top" Width="400" Panel.ZIndex="0"/>
-        <!-- Other elements on top -->
-        <Label Content="Form of sale" HorizontalAlignment="Left" Height="28" Margin="11,66,0,0" VerticalAlignment="Top" Width="229" Panel.ZIndex="1"/>
-        <Button Content="Takeaway" HorizontalAlignment="Left" Height="56" Margin="56,99,0,0" VerticalAlignment="Top" Width="122" Panel.ZIndex="1"/>
-        <Button Content="For Here" HorizontalAlignment="Left" Height="56" Margin="238,99,0,0" VerticalAlignment="Top" Width="122" Panel.ZIndex="1"/>
-        <!-- Zone label -->
-        <Label Content="Zone" Margin="11,170,1863,0" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.717,-0.433"/>
 
-        <!-- Table lists -->
-        <Grid Margin="0,240,0,10" HorizontalAlignment="Left" Width="400">
+        <!-- Background Border -->
+        <Border BorderThickness="1" Background="#FFFFE0E0" HorizontalAlignment="Left" Height="103" Margin="21,88,0,0" VerticalAlignment="Top" Width="400" Panel.ZIndex="0"/>
+
+        <!-- Sales Form -->
+        <Label Content="Form of Sale" HorizontalAlignment="Left" Height="28" Margin="33,92,0,0" VerticalAlignment="Top" Width="228" Panel.ZIndex="1"/>
+        <Button Content="Takeaway" HorizontalAlignment="Left" Height="56" Margin="77,125,0,0" VerticalAlignment="Top" Width="122" Panel.ZIndex="1"/>
+        <Button Content="For Here" HorizontalAlignment="Left" Height="56" Margin="259,125,0,0" VerticalAlignment="Top" Width="122" Panel.ZIndex="1"/>
+
+        <!-- Zone Label -->
+        <Label Content="Zone" Margin="22,204,1852,0" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.717,-0.433"/>
+
+        <!-- Table Lists -->
+        <Grid Margin="22,336,0,0" HorizontalAlignment="Left" Width="400" Height="347" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <!-- Danh sách bàn đang có khách -->
             <Label Content="Occupied Tables" Grid.Row="0" FontWeight="Bold" Margin="0,0,0,5"/>
             <Border BorderThickness="1" BorderBrush="Gray" Grid.Row="1" Margin="0,0,0,10">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="120" Margin="0,0,9,0">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Margin="0,0,9,-18">
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Table 1 (Occupied)" Width="120" Height="99" Margin="5" Background="LightCoral"/>
                         <Button Content="Table 3 (Occupied)" Width="120" Height="99" Margin="5" Background="LightCoral"/>
                         <Button Content="Table 5 (Occupied)" Width="120" Height="99" Margin="5" Background="LightCoral"/>
                         <Button Content="Table 7 (Occupied)" Width="120" Height="99" Margin="5" Background="LightCoral"/>
-                        
                     </StackPanel>
                 </ScrollViewer>
             </Border>
-            <!-- Danh sách bàn trống -->
             <Label Content="Available Tables" Grid.Row="2" FontWeight="Bold" Margin="0,10,0,5"/>
-            <Border BorderThickness="1" BorderBrush="Gray" Grid.Row="3">
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="120">
+            <Border BorderThickness="1" BorderBrush="Gray" Grid.Row="3" Margin="0,0,0,68">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="136" VerticalAlignment="Top" Margin="0,0,-1,0">
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Table 2 (Available)" Width="120" Height="99" Margin="5" Background="LightGreen"/>
                         <Button Content="Table 4 (Available)" Width="120" Height="99" Margin="5" Background="LightGreen"/>
                         <Button Content="Table 6 (Available)" Width="120" Height="99" Margin="5" Background="LightGreen"/>
                         <Button Content="Table 8 (Available)" Width="120" Height="99" Margin="5" Background="LightGreen"/>
-                        
                     </StackPanel>
                 </ScrollViewer>
             </Border>
         </Grid>
-        <ComboBox Height="41" Margin="80,0,1540,839" VerticalAlignment="Bottom"/>
+
+        <!-- ComboBoxes and Add Table Button -->
+        <ComboBox Height="41" Margin="81,0,1539,758" VerticalAlignment="Bottom"/>
+        <Button Content="Add Table" HorizontalAlignment="Left" Height="40" Margin="40,705,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <!-- Menu Section -->
+        <Label Content="Menu" HorizontalAlignment="Left" Height="44" Margin="1435,151,0,0" VerticalAlignment="Top" Width="101" FontSize="16"/>
+        <ComboBox HorizontalAlignment="Left" Height="40" Margin="1537,171,0,0" VerticalAlignment="Top" Width="340"/>
+
+        <!-- Coffee Buttons -->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Height="500" Margin="1447,232,0,0">
+            <WrapPanel Orientation="Horizontal" ItemHeight="86" ItemWidth="102">
+                <!-- Coffee Buttons -->
+                <Button Content="Black Coffee" Height="86" Width="102"/>
+                <Button Content="Cappuccino" Height="86" Width="102" Margin="5,0,0,0"/>
+                <Button Content="Latte" Height="86" Width="102" Margin="5,0,0,0"/>
+                <Button Content="Espresso" Height="86" Width="102" Margin="5,0,0,0"/>
+                <Button Content="Mocha" Height="86" Width="102" Margin="5,0,0,0" Click="Button_Click"/>
+                <Button Content="Macchiato" Height="86" Width="102" Margin="5,0,0,0"/>
+                <Button Content="Americano" Height="86" Width="102" Margin="5,0,0,0"/>
+                <Button Content="Flat White" Height="86" Width="102" Margin="5,0,0,0"/>
+            </WrapPanel>
+        </ScrollViewer>
+
+
+
+        <!-- Management Actions -->
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1442,500,0,0"/>
+
+        <!-- Additional Management Features -->
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,500,20,0"/>
+
+        <!-- Header -->
+        <Label Content="Coffee Management System" HorizontalAlignment="Center" Height="54" Margin="0,944,0,0" VerticalAlignment="Top" Width="498" FontSize="36" FontWeight="Bold"/>
+
+        <!-- User Label -->
+        <Label Content="User:" HorizontalAlignment="Left" Height="27" Margin="0,944,0,0" VerticalAlignment="Top" Width="57" FontSize="16" FontWeight="Bold"/>
+        <Button Content="Record Order" RenderTransformOrigin="1.296,-5.099" Margin="640,904,1160,54"/>
+        <Button Content="Print Invoice" Margin="480,904,1320,54"/>
+        <Button Content="Send Order to Kitchen" Margin="1739,63,39,0" Height="62" VerticalAlignment="Top"/>
+        <Button Content="Split Bill" Margin="200,805,1600,153"/>
+        <Button Content="Merge Bill" Margin="980,904,820,54"/>
+        <Button Content="Transfer Table" Margin="1300,904,500,0" Height="40" VerticalAlignment="Top"/>
+        <Button Content="Business Report" Margin="40,805,1760,0" Height="40" VerticalAlignment="Top"/>
+        <Button Content="Manage Inventory" Margin="1141,904,659,54"/>
+        <Button Content="Cloud Menu Admin" Margin="200,705,1600,253"/>
+        <Button Content="Manage Customer Debts" Margin="800,904,980,0" Height="40" VerticalAlignment="Top"/>
     </Grid>
 </Window>
